@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}"
+	name="${project.name}" plugins-version="2">
+	<plugin-info>
+		<description>${project.description}</description>
+		<version>${project.version}</version>
+		<vendor name="${project.organization.name}"
+			url="${project.organization.url}" />
+		<param name="plugin-icon">images/pluginIcon.png</param>
+		<param name="plugin-logo">images/pluginLogo.png</param>
+	</plugin-info>
+	<!-- add our i18n resource -->
+	<resource type="i18n" name="i18n" location="userplugin" />
+	<!-- add our web resources -->
+	<web-resource key="userplugin-resources"
+		name="userplugin Web Resources">
+		<dependency>com.atlassian.auiplugin:ajs</dependency>
+		<dependency>com.atlassian.auiplugin:aui-forms</dependency>
+		<dependency>com.atlassian.auiplugin:aui-labels</dependency>
+		<dependency>com.atlassian.auiplugin:aui-buttons</dependency>
+		<dependency>com.atlassian.auiplugin:aui-select</dependency>
+		<dependency>com.atlassian.auiplugin:aui-experimental-iconfont</dependency>
+		<dependency>com.atlassian.auiplugin:table</dependency>
+		<!-- <dependency>com.atlassian.auiplugin:aui-page-layout</dependency> -->
+		<dependency>com.atlassian.auiplugin:aui-form-validation</dependency>
+		
+		<resource type="download" name="userplugin.css"
+			location="/css/userplugin.css" />
+		<resource type="download" name="userplugin.js"
+			location="/js/userplugin.js" />
+		<resource type="download" name="images/" location="/images" />
+		<context>userplugin</context>
+	</web-resource>
+	
+	<!--Code added -->
+	
+	<web-section name="user_plugin_section"	i18n-name-key="user_plugin.admin.planning.page.web.section.name"
+		key="user_plugin_section" location="admin_plugins_menu" weight="1000">
+		<label key="user_plugin.admin.planning.page.web.section.name" />
+		<description key="user-plugin.description">The User Plugin</description>
+	</web-section>
+
+	<web-item name="user_plugin_webitem" i18n-name-key="user_plugin.admin.planning.page.web.item.name"
+		key="user_plugin_webitem" section="admin_plugins_menu/user_plugin_section" weight="1000">
+		<description key="user-plugin.description">The User Plugin</description>
+		<label key="user_plugin.admin.planning.page.web.item.name" />
+		<link linkId="admin_user_plugin_planning_webitem_link">/secure/CreateUserMenu.jspa</link>
+	</web-item>
+	
+	<web-item name="user_plugin_webitems" i18n-name-key="user_plugin.admin.planning.page.web.item.names"
+		key="user_plugin_webitems" section="admin_plugins_menu/user_plugin_section" weight="1000">
+		<description key="user-plugin.description">The User Plugin</description>
+		<label key="user_plugin.admin.planning.page.web.item.names" />
+		<link linkId="admin_user_plugin_planning_webitem_link">/secure/ViewUserWebworkAction.jspa</link>
+	</web-item>
+
+<!--code end -->
+	<webwork1 key="user-plugin" name="User Plugin" i18n-name-key="user-plugin.name">
+		<description key="user-plugin.description">The User Plugin Plugin</description>
+		<actions>
+			<action name="com.empyra.userplugin.webwork.CreateUserMenu"
+				alias="CreateUserMenu" roles-required="admin">
+				<view name="create-user">/templates/user-creation/create-user.vm</view>
+			</action>
+			
+			<action name="com.empyra.userplugin.webwork.CreateUserWebworkAction"
+				alias="CreateUserWebworkAction" roles-required="admin">
+				<view name="create-user">/templates/user-creation/create-user.vm</view>
+			</action>
+			
+			<action name="com.empyra.userplugin.webwork.ViewUserWebworkAction"
+				alias="ViewUserWebworkAction" roles-required="admin">
+				<view name="view-user">/templates/user-creation/view-user.vm</view>
+			</action>
+		</actions>
+	</webwork1>
+
+	<ao key="ao-module">
+		<description>The module configuring the Active Objects service used by
+			this plugin
+		</description>
+		<entity>com.empyra.userplugin.ao.CreateUser</entity>
+		<entity>com.empyra.userplugin.ao.ViewUser</entity>
+	</ao>
+</atlassian-plugin>

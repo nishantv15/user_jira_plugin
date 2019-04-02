@@ -1,0 +1,64 @@
+<html>
+	<head>
+	    <title>File Upload</title>
+	    <meta name="decorator" content="atl.admin">
+	    <meta name="admin.active.section" content="admin_plugins_menu/admin_user_plugin_planning_webitem">
+	    $webResourceManager.requireResourcesForContext("userplugin")
+	</head>
+	<body>
+		<h1>User Creation</h1>
+		<form  id="valid_submit_form_create" class="aui" method="POST" action="CreateUserWebworkAction!default.jspa">
+			<table class='aui'>
+			    <thead>
+			        <tr>
+			            <th>Field Name</th>
+			            <th></th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr>
+			            <td headers="default-header">
+			        		<label for="aucUserName">Email</label>
+						</td>
+						<td><span class="aui-icon aui-icon-small aui-iconfont-devtools-arrow-right"></span></td>
+			            <td>
+			            	<input class="upfile" id="field-name"  name="email" data-aui-validation-field data-aui-validation-required="required">
+						</td>
+						
+			        </tr>
+			        <tr>
+			        <td headers="default-header">
+			        		<label for="aucUserName">Full Name</label>
+						</td>
+						<td><span class="aui-icon aui-icon-small aui-iconfont-devtools-arrow-right"></span></td>
+			            <td>
+			            	<input class="upfile" id="field-name"  name="fullName" data-aui-validation-field data-aui-validation-required="required">
+						</td>
+			        </tr>
+			        <tr>
+			        <td headers="default-header">
+			        		<label for="aucUserName">User Name</label>
+						</td>
+						<td><span class="aui-icon aui-icon-small aui-iconfont-devtools-arrow-right"></span></td>
+			            <td>
+			            	<input class="upfile" id="field-name"  name="userName" data-aui-validation-field data-aui-validation-required="required">
+						</td>
+			        </tr>
+			        <tr>
+			        <td headers="default-header">
+			        		<label for="aucUserName">Password</label>
+						</td>
+						<td><span class="aui-icon aui-icon-small aui-iconfont-devtools-arrow-right"></span></td>
+			            <td>
+			            	<input class="upfile" type="password" id="field-name"  name="password" data-aui-validation-field data-aui-validation-required="required">
+						</td>
+			        </tr>
+			    </tbody>
+			</table>
+			<div class="field-group">
+		    	<caption id="user-create">
+		        <button id='submit-button' type="submit" class="aui-button" style="float: right;"><span class="aui-icon aui-icon-small aui-iconfont-group"></span>&nbsp;Create Users</button>        
+		    </div>
+		</form>
+	</body>
+</html>

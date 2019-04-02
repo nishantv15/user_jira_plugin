@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>File Upload</title>
+    <meta name="decorator" content="atl.admin">
+     <meta name="admin.active.section" content="admin_plugins_menu/admin_user_plugin_planning_webitems">
+	    $webResourceManager.requireResourcesForContext("userplugin")
+</head>
+<body>
+<table class="aui">
+    <thead>
+        <tr>
+            <th id="basic-email">Email</th>
+            <th id="basic-fullName">FullName</th>
+            <th id="basic-userName">UserName</th>
+        </tr>
+    </thead>
+    <tbody>
+        	#foreach($createUser in $createUser)
+	        	<tr>
+	            	<td>$!createUser.email</td>
+	            	<td>$!createUser.fullName</td>
+	            	<td>$!createUser.userName</td>
+	            	
+	            </tr>
+            #end
+	</tbody>
+	</table>
+	</body> 	
+ </html>
